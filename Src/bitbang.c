@@ -1,7 +1,7 @@
 /*
  * bitbang.c
  *
- *  Created on: Jul 16, 2025
+ *  Create  d on: Jul 16, 2025
  *      Author: Anandan K
  */
 
@@ -104,10 +104,10 @@ uint8_t ack_Read(BitBang_ptr_t *ptr)
 {
     GPIO_Mode_Input(ptr->SDA);
     I2C_delay();
-    SCL_High();
+    SCL_High(ptr);
     I2C_delay();
     uint8_t ack1 = GPIO_ReadFromInputPin(ptr->SDA->pGPIOx, ptr->SDA->GPIO_PinConfig.GPIO_PinNumber);
-    SCL_Low();
+    SCL_Low(ptr);
     I2C_delay();
     return ack1;
 }
